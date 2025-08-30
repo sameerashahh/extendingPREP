@@ -56,7 +56,14 @@ COPY prep-transforms.tar.gz .
 RUN tar xf prep-transforms.tar.gz
 
 RUN cp repo/codeflaws/all-script/* .
-RUN head -n 1 repo/codeflaws/all-script/codeflaws-defect-detail-info.txt > run1
+
+RUN cd repo/codeflaws/all-script && \
+    split -n l/5 codeflaws-defect-detail-info.txt split && \
+    mv splitaa /opt/codeflaws/split1 && \
+    mv splitab /opt/codeflaws/split2 && \
+    mv splitac /opt/codeflaws/split3 && \
+    mv splitad /opt/codeflaws/split4 && \
+    mv splitae /opt/codeflaws/split5
 
 RUN mkdir -p /opt/codeflaws/genprog-run
 
