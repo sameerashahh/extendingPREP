@@ -27,7 +27,8 @@ if [[ "$line" == *"-bug-"* ]]; then
       #check if the prep file exists in the prep directory.
       if [ -e "$PREPDIRECTORY/$prep_cfile" ];
       then
-        echo "MOVING $prep_cfile to $versiondir/$version/$cfile"
+        # moving the prep file to the codeflaws directory to replace the buggy file.
+        echo "MOVING $prep_cfile to $versiondir/$version/$cfile"        
         cp "$PREPDIRECTORY/$prep_cfile" "$versiondir/$version/$cfile"
         # add the file to a new run1 file to make a count of which files we need to use.
         echo "$version" >> new_run1
