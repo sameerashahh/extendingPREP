@@ -52,8 +52,8 @@ RUN git clone https://github.com/pdreiter/codeflaws.git
 
 WORKDIR /opt/codeflaws
 RUN apt-get install -y wget
-COPY prep-transforms.tar.gz .
-RUN tar xf prep-transforms.tar.gz
+RUN wget http://www.comp.nus.edu.sg/~release/codeflaws/codeflaws.tar.gz && \
+tar xf codeflaws.tar.gz
 
 RUN cp repo/codeflaws/all-script/* .
 RUN head -n 1 repo/codeflaws/all-script/codeflaws-defect-detail-info.txt > run1
