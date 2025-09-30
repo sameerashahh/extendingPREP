@@ -59,7 +59,7 @@ COPY prep-transforms.tar.gz .
 RUN tar xf prep-transforms.tar.gz
 
 #put run-version-genprog.sh in /opt/codeflaws
-COPY run-version-genprog.sh .
+COPY run-version-genprog-prep.sh .
 
 RUN cp repo/codeflaws/all-script/* .
 RUN head -n 1 repo/codeflaws/all-script/codeflaws-defect-detail-info.txt > run1

@@ -1,7 +1,7 @@
 #!/bin/bash
 # Script to run spr on subjects in codeflaws directory
 #The following variables needs to be changed:
-rootdir="/home/ubuntu/codeforces-crawler/CodeforcesSpider" #directory of this script
+rootdir="/opt/codeflaws" #directory of this script
 rundir="$rootdir/genprog-run" # directory in which genprog is called from, a temporary output directory where everything will be copied to during the repair
 versiondir="$rootdir/codeflaws" #directory where the codeflaws.tar.gz is extracted
 filename="$rootdir/run1" #should be a copy of the codeflaws-defect-detail-info.txt, or select several defects from codeflaws-defect-detail-info.txt

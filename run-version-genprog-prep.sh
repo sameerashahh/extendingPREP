@@ -1,3 +1,4 @@
+rootdir="/opt/codeflaws"
 versiondir="$rootdir/codeflaws" #directory where the codeflaws.tar.gz is extracted
 filename="$rootdir/codeflaws-defect-detail-info.txt" #should be a copy of the codeflaws-defect-detail-info.txt, or select several defects from codeflaws-defect-detail-info.txt
 prepdir="$rootdir/xform" #directory where prep transforms are
