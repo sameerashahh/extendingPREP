@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Paths to files (adjust if needed)
+# Paths to files
 GENPROG_FOUND="genprog-repairs-found"
 GENPROG_NOT_FOUND="genprog-repairs-not-found"
 PREP_FOUND="prep-found"
@@ -8,7 +8,7 @@ PREP_NOT_FOUND="prep-not-found"
 PREP_FAILED="prep-failed.txt"
 
 # Output file
-OUTPUT_FILE="../combined-categories.txt"
+OUTPUT_FILE="combined-categories.txt"
 
 # Step 0: Filter PREP lists to remove failed files
 sed 's/^/temp-/' "$PREP_FAILED" > prep-failed-temp.txt
@@ -23,7 +23,7 @@ PREP_NOT_FOUND="prep-not-found-filtered.txt"
 > $OUTPUT_FILE
 
 # Print header
-echo -e "GenProg Repair Status without PREP\tGenProg Repair Status with PREP\tCategory" >> $OUTPUT_FILE
+echo -e "File\tGenProg Repair Status without PREP\tGenProg Repair Status with PREP\tCategory" >> $OUTPUT_FILE
 
 # Initialize counters
 count1=0
@@ -55,7 +55,7 @@ while read -r file; do
     else
         category="Unknown"
     fi
-    echo -e "Repair Found\t$prep_status\t$category" >> $OUTPUT_FILE
+    echo -e "$file\tRepair Found\t$prep_status\t$category" >> $OUTPUT_FILE
 done < "$GENPROG_FOUND"
 
 # Process GenProg not found files
@@ -70,7 +70,7 @@ while read -r file; do
     else
         category="Unknown"
     fi
-    echo -e "Repair Not Found\t$prep_status\t$category" >> $OUTPUT_FILE
+    echo -e "$file\tRepair Not Found\t$prep_status\t$category" >> $OUTPUT_FILE
 done < "$GENPROG_NOT_FOUND"
 
 # Print counts
